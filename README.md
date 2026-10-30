@@ -19,7 +19,7 @@ This repository contains the **first-party source code and the documentation** o
 | `Assets/Scripts/Editor/` | Editor tools used to set up the scenes (`Tools > Firewall Duty`) |
 | `Assets/Plugins/Android/` | `FirewallBridge.java`: Google sign-in and photo picker on a phone |
 | `Assets/Resources/MenuUI/` | Android layout XML for the Cyber Tablet, trivia questions, config templates |
-| `Packages/manifest.json`, `ProjectSettings/ProjectVersion.txt` | Unity packages and editor version |
+| `Packages/manifest.json`, `ProjectSettings/` | Unity packages and editor version; `ProjectSettings.asset` (Android package id, min SDK, ARM64, input handler), `EditorBuildSettings.asset` (scenes in the build), `QualitySettings.asset`. The Unity cloud project and organization ids are removed. |
 
 ## Technical summary
 - Unity 6 (`6000.4.6f1`), Universal Render Pipeline 17, Input System, AI Navigation
