@@ -90,9 +90,9 @@ flowchart LR
 
 **Google sign-in** has two paths: on a phone, `NativeBridge` calls `Plugins/Android/FirewallBridge.java` (the phone's own sign-in sheet); in the Editor, `GoogleDeviceLogin` uses Google's device flow (a code typed at google.com/device). Facebook sign-in code exists (`FacebookLogin`) but is not active in the game.
 
-**Player record** (`PlayerSession.PlayerData`, Firestore `players` collection): `uid`, `fullName`, `username`, `email`, `level`, `exp`, `totalPoints`, `unlockedAchievements`, `photoUri`. Level is `1 + exp / 200` (`ExpPerLevel = 200`).
+**Player record** (`PlayerSession.PlayerData`, Firestore `players` collection): `uid`, `fullName`, `username`, `email`, `level`, `exp`, `totalPoints`, `missionsCompleted`, `bestScore`, `threatsIdentified`, `officeProgress`, `bankProgress` (the highest mission finished in each environment, which drives the unlocking), `unlockedAchievements`, `photoUri`. Level is `1 + exp / 200` (`ExpPerLevel = 200`).
 
-**Local storage** (`PlayerPrefs`): refresh token (stay signed in), remembered email, per-player mission progress per environment, pending unfinished missions (the Continue screen), and the game settings.
+**Local storage** (`PlayerPrefs`): refresh token (stay signed in), remembered email, a local copy of the mission progress (the game uses the higher of the local and online values), pending unfinished missions (the Continue screen), and the game settings.
 
 **Progression rules** (`PlayerSession`, `MissionSession`):
 - Missions unlock in order, per environment.
