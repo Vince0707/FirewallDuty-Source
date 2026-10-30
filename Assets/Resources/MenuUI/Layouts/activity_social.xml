@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/socialExample"
+    android:layout_width="600dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:visibility="visible">
+
+    <!-- GRAY BROWSER HEADER -->
+    <LinearLayout
+        android:layout_width="600dp"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#707070"
+        android:paddingStart="6dp"
+        android:translationY="5dp"
+        android:paddingEnd="6dp">
+
+        <!-- THREE DOTS -->
+        <TextView
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:layout_marginStart="3dp"
+            android:background="@drawable/example_dot"/>
+
+        <TextView
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:layout_marginStart="3dp"
+            android:background="@drawable/example_dot"/>
+
+        <TextView
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:layout_marginStart="3dp"
+            android:background="@drawable/example_dot"/>
+
+    </LinearLayout>
+
+    <!-- WHITE CONTENT AREA -->
+    <ScrollView
+        android:layout_width="600dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp">
+
+        <LinearLayout
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:background="#FFFFFF">
+
+            <!-- EXAMPLE EVIDENCE -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Example Evidence"
+                android:textColor="#000000"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:paddingBottom="2dp"/>
+
+            <!-- CALL TRANSCRIPT -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Call Transcript"
+                android:textColor="#FF3030"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp"/>
+
+            <!-- CALLER 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Caller: Hello, this is IT support. We are performing a security update on your account."
+                    android:textColor="#000000"
+                    android:textSize="9sp"/>
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="←"
+                    android:textColor="#FF3030"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:translationX="-60dp"
+                    android:translationY="-10dp" />
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/example_callout"
+                    android:padding="3dp"
+                    android:text="Pretends to be authority / IT"
+                    android:textColor="#FFFFFF"
+                    android:textSize="9sp"
+                    android:translationX="-70dp" />
+
+            </LinearLayout>
+
+            <!-- EMPLOYEE -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Employee: Okay"
+                android:textColor="#000000"
+                android:textSize="9sp"/>
+
+            <!-- CALLER 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Caller: I need your username and password to verify your account."
+                    android:textColor="#000000"
+                    android:textSize="9sp"/>
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="←"
+                    android:textColor="#FF3030"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:translationX="-110dp"
+                    android:translationY="-10dp" />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/example_callout"
+                    android:padding="3dp"
+                    android:text="Requests password or credentials"
+                    android:textColor="#FFFFFF"
+                    android:translationX="-120dp"
+                    android:textSize="9sp"/>
+
+            </LinearLayout>
+
+            <!-- EMPLOYEE 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Employee: .............."
+                    android:textColor="#000000"
+                    android:textSize="9sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

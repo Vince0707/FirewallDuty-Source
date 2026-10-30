@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popupExample"
+    android:layout_width="600dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:visibility="visible">
+
+<!-- HEADER -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="20dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="#707070"
+    android:paddingStart="6dp"
+    android:translationY="5dp"
+    android:paddingEnd="6dp">
+
+    <TextView
+        android:layout_width="5dp"
+        android:layout_height="5dp"
+        android:background="@drawable/example_dot"/>
+
+    <TextView
+        android:layout_width="5dp"
+        android:layout_height="5dp"
+        android:layout_marginStart="3dp"
+        android:background="@drawable/example_dot"/>
+
+    <TextView
+        android:layout_width="5dp"
+        android:layout_height="5dp"
+        android:layout_marginStart="3dp"
+        android:background="@drawable/example_dot"/>
+
+</LinearLayout>
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:layout_marginTop="5dp"
+    android:background="#EDEDED">
+
+    <!-- FAKE SECURITY POP-UP -->
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="145dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:elevation="5dp">
+
+        <TextView
+            android:layout_width="400dp"
+            android:layout_height="20dp"
+            android:gravity="center_vertical"
+            android:paddingStart="7dp"
+            android:text="Windows Security"
+            android:textColor="#000"
+            android:textSize="7sp"
+            android:background="#D8D8D8"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="WARNING!"
+            android:textColor="#FF0000"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="10sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="Your computer is infected! Scan now to remove threats."
+            android:textColor="#000"
+            android:textSize="9sp"/>
+
+        <!-- FAKE WARNING -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="6dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="The message claims that the computer is infected."
+                android:textColor="#000"
+                android:translationX="8dp"
+                android:textSize="9sp"/>
+
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="←"
+                android:textColor="#FF3030"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:translationX="-50dp"
+                android:translationY="-10dp" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/example_callout"
+                android:padding="3dp"
+                android:text="Fake Security Warnings"
+                android:textColor="#ffff"
+                android:translationX="-60dp"
+                android:textSize="9sp" />
+
+        </LinearLayout>
+
+        <!-- BUTTON -->
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="7dp"
+            android:gravity="center"
+            android:text="SCAN NOW"
+            android:textColor="#FFFFFF"
+            android:textSize="6sp"
+            android:background="#D32F2F"/>
+
+    </LinearLayout>
+
+</FrameLayout>
+
+</LinearLayout>

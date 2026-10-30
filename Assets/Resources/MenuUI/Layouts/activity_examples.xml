@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A3B61">
+
+    <FrameLayout
+        android:id="@+id/examplesContentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- ========================================================= -->
+        <!-- PHISHING EMAIL EXAMPLE -->
+        <!-- ========================================================= -->
+
+        <LinearLayout
+            android:id="@+id/phishingExample"
+            android:layout_width="600dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <!-- HEADER -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="#707070"
+                android:paddingStart="6dp"
+                android:translationY="5dp"
+                android:paddingEnd="6dp">
+
+                <TextView
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:layout_marginStart="3dp"
+                    android:background="@drawable/example_dot"/>
+
+                <TextView
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:layout_marginStart="3dp"
+                    android:background="@drawable/example_dot" />
+
+                <TextView
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:layout_marginStart="3dp"
+                    android:background="@drawable/example_dot"/>
+
+            </LinearLayout>
+
+            <!-- EMAIL BODY -->
+            <ScrollView
+                android:layout_width="600dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="600dp"
+                    android:layout_height="wrap_content"
+                    android:background="#ffff"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <!-- FROM + WARNING -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="17dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="From: payroll_hr-updateportal.com"
+                            android:textColor="#000"
+                            android:textSize="8sp" />
+
+                        <!-- RED ARROW -->
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="29dp"
+                            android:gravity="center"
+                            android:text="←"
+                            android:textColor="#FF3030"
+                            android:textSize="28sp"
+                            android:textStyle="bold"
+                            android:translationX="-300dp"
+                            android:translationY="-10dp" />
+
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/example_callout"
+                            android:padding="3dp"
+                            android:text="Suspicious Sender Address"
+                            android:textColor="#ffff"
+                            android:translationX="-310dp"
+                            android:translationY="0dp"
+                            android:textSize="9sp" />
+
+                    </LinearLayout>
+
+                    <!-- TO -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="To: Employee@company.com"
+                        android:textColor="#000"
+                        android:textSize="8sp" />
+
+                    <!-- SUBJECT -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Subject: Payroll Information update Required"
+                        android:textColor="#000"
+                        android:textSize="8sp" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp" />
+
+                    <!-- GREETING -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dear Employee,"
+                        android:textColor="#000"
+                        android:textSize="8sp" />
+
+                    <!-- REQUEST + WARNING -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="17dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="To ensure timely payment, please update your payroll information by clicking the link below"
+                            android:textColor="#000"
+                            android:textSize="8sp" />
+
+                        <!-- RED ARROW -->
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="29dp"
+                            android:gravity="center"
+                            android:text="←"
+                            android:textColor="#FF3030"
+                            android:textSize="28sp"
+                            android:textStyle="bold"
+                            android:translationX="-40dp"
+                            android:translationY="-10dp" />
+
+                        <TextView
+                            android:layout_width="173dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/example_callout"
+                            android:padding="3dp"
+                            android:text="Request personal/financial information"
+                            android:textColor="#ffff"
+                            android:textSize="9sp"
+                            android:translationX="-50dp"
+                            android:translationY="-0dp" />
+
+                    </LinearLayout>
+
+                    <!-- LINK + WARNING -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="17dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="www.hr-updateportal.com/update"
+                            android:textColor="#42A5F5"
+                            android:textSize="8sp" />
+
+                        <!-- RED ARROW -->
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="29dp"
+                            android:gravity="center"
+                            android:text="⟵"
+                            android:textColor="#FF3030"
+                            android:textSize="28sp"
+                            android:textStyle="bold"
+                            android:translationX="-315dp"
+                            android:translationY="-10dp" />
+
+                        <TextView
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/example_callout"
+                            android:padding="3dp"
+                            android:text="Suspicious Link"
+                            android:textColor="#ffff"
+                            android:translationX="-320dp"
+                            android:translationY="-0dp"
+                            android:textSize="9sp" />
+
+                    </LinearLayout>
+
+                    <!-- URGENT MESSAGE + WARNING -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="17dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="This action must be completed within 24 hours."
+                            android:textColor="#000"
+                            android:textSize="8sp" />
+
+                        <!-- RED ARROW -->
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="29dp"
+                            android:gravity="center"
+                            android:text="←"
+                            android:textColor="#FF3030"
+                            android:textSize="28sp"
+                            android:textStyle="bold"
+                            android:translationX="-260dp"
+                            android:translationY="-10dp" />
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/example_callout"
+                            android:padding="3dp"
+                            android:text="Urgent Message"
+                            android:textColor="#ffff"
+                            android:translationX="-270dp"
+                            android:translationY="-0dp"
+                            android:textSize="9sp" />
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp" />
+
+                    <!-- SIGNATURE -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Thank You,"
+                        android:textColor="#000"
+                        android:textSize="8sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="HR Department"
+                        android:textColor="#000"
+                        android:textSize="8sp" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

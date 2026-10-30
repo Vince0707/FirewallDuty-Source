@@ -1,0 +1,214 @@
+<title>Firewall Duty Flowchart</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  /* Layout: one figure, read top to bottom. Menu fans out, the mission path runs down the right, the mission interior snakes left then right, and a return line closes the loop to the hub. */
+  :root {
+    --bg: #F3F5F8;
+    --fg: #0E1B2E;
+    --muted: #4F5F78;
+    --box: #FFFFFF;
+    --line: #7C8CA5;
+    --key: #0A2248;
+    --key-fg: #F3D793;
+    --accent: #9A6B00;
+    --bad: #B3261E;
+    --bad-bg: #FBE9E7;
+    --good: #1B7A43;
+    --good-bg: #E3F3EA;
+    --chip: #E5EAF1;
+    --font: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #07162B; --fg: #E8EEF7; --muted: #9DB0CC; --box: #0F2544; --line: #5A7099;
+      --key: #F3D793; --key-fg: #0A2248; --accent: #F3D793;
+      --bad: #FF8A80; --bad-bg: #3A1A22; --good: #6FD39A; --good-bg: #12301F; --chip: #12294A;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #07162B; --fg: #E8EEF7; --muted: #9DB0CC; --box: #0F2544; --line: #5A7099;
+    --key: #F3D793; --key-fg: #0A2248; --accent: #F3D793;
+    --bad: #FF8A80; --bad-bg: #3A1A22; --good: #6FD39A; --good-bg: #12301F; --chip: #12294A;
+    color-scheme: dark;
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.55;
+    padding-block: 32px 56px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  main { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+  header { display: flex; flex-direction: column; gap: 8px; }
+  h1 { margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600; text-wrap: balance; }
+  p { margin: 0; max-width: 65ch; color: var(--muted); }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .legend i { width: 16px; height: 12px; border-radius: 3px; border: 1.5px solid var(--line); background: var(--box); }
+  .legend i.k { background: var(--key); border-color: var(--accent); }
+  .legend i.b { background: var(--bad-bg); border-color: var(--bad); }
+  .legend i.g { background: var(--good-bg); border-color: var(--good); }
+  figure { margin: 0; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+  .scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--box); padding: 8px; }
+  svg { display: block; width: 100%; min-width: 760px; height: auto; }
+  figcaption { font-size: 13.5px; color: var(--muted); max-width: 75ch; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .chips li { background: var(--chip); border-radius: 6px; padding: 4px 10px; font-size: 13px; }
+  .chips b { font-family: var(--mono); font-weight: 500; color: var(--accent); margin-right: 6px; }
+
+  /* SVG parts */
+  .n rect { fill: var(--box); stroke: var(--line); stroke-width: 1.5; }
+  .k rect { fill: var(--key); stroke: var(--accent); stroke-width: 1.5; }
+  .bad rect, .bad polygon { fill: var(--bad-bg); stroke: var(--bad); stroke-width: 1.5; }
+  .good rect { fill: var(--good-bg); stroke: var(--good); stroke-width: 1.5; }
+  .dec polygon { fill: var(--box); stroke: var(--accent); stroke-width: 1.5; }
+  .zone { fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 8 5; }
+  .t { font: 600 12.5px var(--font); text-anchor: middle; fill: var(--fg); }
+  .s { font: 400 10.5px var(--font); text-anchor: middle; fill: var(--muted); }
+  .k .t, .k .s { fill: var(--key-fg); }
+  .bad .t { fill: var(--bad); }
+  .good .t { fill: var(--good); }
+  .l { font: 500 10.5px var(--mono); fill: var(--muted); }
+  .l.mid { text-anchor: middle; }
+  .l.end { text-anchor: end; }
+  .l.zonelabel { fill: var(--accent); letter-spacing: 0.08em; }
+  .a { stroke: var(--line); stroke-width: 1.6; fill: none; }
+  .a.dash { stroke-dasharray: 5 4; }
+  .a.red { stroke: var(--bad); }
+  .head { fill: var(--line); }
+  .head.red { fill: var(--bad); }
+  .band rect { fill: var(--chip); stroke: var(--accent); stroke-width: 1.5; }
+  .band text { font: 500 12px var(--font); text-anchor: middle; fill: var(--fg); }
+</style>
+
+<main>
+  <header>
+    <h1>Firewall Duty Flowchart</h1>
+    <p>The whole game in one figure: login, menu, mission setup, the investigation inside a mission, and the return to the Operations Hub.</p>
+    <div class="legend">
+      <span><i class="k"></i>Main path</span>
+      <span><i></i>Step or screen</span>
+      <span><i class="g"></i>Success</span>
+      <span><i class="b"></i>Penalty</span>
+    </div>
+  </header>
+
+  <figure>
+    <div class="scroll">
+      <svg viewBox="0 0 920 895" role="img" aria-label="Login leads to the Main Menu. New Game goes through the Operations Hub, environment, mission, story, briefing and arrival into the mission. Inside the mission the player walks to the objective, talks to NPCs, opens the Cyber Tablet, investigates and finds three pieces of evidence, then chooses a response. A correct response completes the mission, shows the outcome screen and saves online, then returns to the hub. A wrong response costs EXP and time and returns to the choice. A countdown timer runs throughout and a timeout ends the mission at the outcome screen. Continue skips straight to the briefing.">
+        <defs>
+          <marker id="arr1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0 0 L10 5 L0 10 z"/></marker>
+          <marker id="arr1r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head red" d="M0 0 L10 5 L0 10 z"/></marker>
+        </defs>
+
+        <!-- Login and Main Menu -->
+        <g class="n"><rect x="340" y="20" width="240" height="46" rx="6"/><text class="t" x="460" y="39">Login</text><text class="s" x="460" y="56">sign up · Google · forgot password</text></g>
+        <g class="k"><rect x="340" y="110" width="240" height="46" rx="6"/><text class="t" x="460" y="129">Main Menu</text><text class="s" x="460" y="146">six choices</text></g>
+        <line class="a" x1="460" y1="66" x2="460" y2="107" marker-end="url(#arr1)"/>
+
+        <!-- Fan out -->
+        <polyline class="a" points="460,156 460,185"/>
+        <polyline class="a" points="85,185 835,185"/>
+        <line class="a" x1="85" y1="185" x2="85" y2="207" marker-end="url(#arr1)"/>
+        <line class="a" x1="235" y1="185" x2="235" y2="207" marker-end="url(#arr1)"/>
+        <line class="a" x1="385" y1="185" x2="385" y2="207" marker-end="url(#arr1)"/>
+        <line class="a" x1="535" y1="185" x2="535" y2="207" marker-end="url(#arr1)"/>
+        <line class="a" x1="685" y1="185" x2="685" y2="207" marker-end="url(#arr1)"/>
+        <line class="a" x1="835" y1="185" x2="835" y2="207" marker-end="url(#arr1)"/>
+
+        <g class="k"><rect x="20" y="210" width="130" height="56" rx="6"/><text class="t" x="85" y="234">New Game</text><text class="s" x="85" y="252">start a mission</text></g>
+        <g class="n"><rect x="170" y="210" width="130" height="56" rx="6"/><text class="t" x="235" y="234">Continue</text><text class="s" x="235" y="252">unfinished mission</text></g>
+        <g class="n"><rect x="320" y="210" width="130" height="56" rx="6"/><text class="t" x="385" y="234">Trivia</text><text class="s" x="385" y="252">30 Qs · 5 EXP each</text></g>
+        <g class="n"><rect x="470" y="210" width="130" height="56" rx="6"/><text class="t" x="535" y="234">Rankings</text><text class="s" x="535" y="252">online leaderboard</text></g>
+        <g class="n"><rect x="620" y="210" width="130" height="56" rx="6"/><text class="t" x="685" y="234">Profile</text><text class="s" x="685" y="252">level · certificates</text></g>
+        <g class="n"><rect x="770" y="210" width="130" height="56" rx="6"/><text class="t" x="835" y="234">Settings</text><text class="s" x="835" y="252">graphics · sound</text></g>
+
+        <!-- Continue skips ahead to the briefing -->
+        <polyline class="a dash" points="235,266 235,310 685,310"/>
+        <line class="a dash" x1="685" y1="310" x2="685" y2="347" marker-end="url(#arr1)"/>
+        <text class="l mid" x="460" y="303">resume: skips straight to the briefing</text>
+
+        <!-- New Game path -->
+        <line class="a" x1="85" y1="266" x2="85" y2="347" marker-end="url(#arr1)"/>
+        <g class="k"><rect x="20" y="350" width="130" height="56" rx="6"/><text class="t" x="85" y="374">Operations Hub</text><text class="s" x="85" y="392">mission control</text></g>
+        <g class="n"><rect x="170" y="350" width="130" height="56" rx="6"/><text class="t" x="235" y="374">Environment</text><text class="s" x="235" y="392">Office or Bank</text></g>
+        <g class="n"><rect x="320" y="350" width="130" height="56" rx="6"/><text class="t" x="385" y="374">Pick Mission</text><text class="s" x="385" y="392">unlocked in order</text></g>
+        <g class="n"><rect x="470" y="350" width="130" height="56" rx="6"/><text class="t" x="535" y="374">Story</text><text class="s" x="535" y="392">background, role</text></g>
+        <g class="n"><rect x="620" y="350" width="130" height="56" rx="6"/><text class="t" x="685" y="374">Briefing</text><text class="s" x="685" y="392">threat, goals, timer</text></g>
+        <g class="n"><rect x="770" y="350" width="130" height="56" rx="6"/><text class="t" x="835" y="374">Arrival</text><text class="s" x="835" y="392">ride, time in</text></g>
+        <line class="a" x1="150" y1="378" x2="167" y2="378" marker-end="url(#arr1)"/>
+        <line class="a" x1="300" y1="378" x2="317" y2="378" marker-end="url(#arr1)"/>
+        <line class="a" x1="450" y1="378" x2="467" y2="378" marker-end="url(#arr1)"/>
+        <line class="a" x1="600" y1="378" x2="617" y2="378" marker-end="url(#arr1)"/>
+        <line class="a" x1="750" y1="378" x2="767" y2="378" marker-end="url(#arr1)"/>
+
+        <!-- Inside the mission -->
+        <rect class="zone" x="14" y="445" width="892" height="385" rx="12"/>
+        <text class="l zonelabel" x="28" y="463">INSIDE THE MISSION</text>
+        <g class="band"><rect x="25" y="472" width="765" height="34" rx="6"/><text x="407" y="494">Countdown timer · 6 minutes · starts at time-in · every mistake costs time</text></g>
+
+        <!-- Arrival enters the investigation row, which runs right to left -->
+        <line class="a" x1="835" y1="406" x2="835" y2="527" marker-end="url(#arr1)"/>
+        <g class="n"><rect x="745" y="530" width="150" height="56" rx="6"/><text class="t" x="820" y="554">Walk to Objective</text><text class="s" x="820" y="572">floor arrow guides</text></g>
+        <g class="n"><rect x="565" y="530" width="150" height="56" rx="6"/><text class="t" x="640" y="554">Talk to NPCs</text><text class="s" x="640" y="572">clues, interviews</text></g>
+        <g class="n"><rect x="385" y="530" width="150" height="56" rx="6"/><text class="t" x="460" y="554">Open Cyber Tablet</text><text class="s" x="460" y="572">3 indicators to find</text></g>
+        <g class="n"><rect x="205" y="530" width="150" height="56" rx="6"/><text class="t" x="280" y="554">Investigate</text><text class="s" x="280" y="572">method varies by threat</text></g>
+        <g class="k"><rect x="25" y="530" width="150" height="56" rx="6"/><text class="t" x="100" y="554">Find 3 Evidence</text><text class="s" x="100" y="572">matches the tablet</text></g>
+        <line class="a" x1="745" y1="558" x2="718" y2="558" marker-end="url(#arr1)"/>
+        <line class="a" x1="565" y1="558" x2="538" y2="558" marker-end="url(#arr1)"/>
+        <line class="a" x1="385" y1="558" x2="358" y2="558" marker-end="url(#arr1)"/>
+        <line class="a" x1="205" y1="558" x2="178" y2="558" marker-end="url(#arr1)"/>
+
+        <!-- Decision row runs left to right -->
+        <line class="a" x1="100" y1="586" x2="100" y2="637" marker-end="url(#arr1)"/>
+        <g class="k"><rect x="25" y="640" width="150" height="56" rx="6"/><text class="t" x="100" y="664">Choose Response</text><text class="s" x="100" y="682">pick the right action</text></g>
+        <line class="a" x1="175" y1="668" x2="202" y2="668" marker-end="url(#arr1)"/>
+        <g class="dec"><polygon points="280,628 355,668 280,708 205,668"/><text class="t" x="280" y="673">Correct?</text></g>
+
+        <line class="a" x1="355" y1="668" x2="392" y2="668" marker-end="url(#arr1)"/>
+        <text class="l mid" x="374" y="660">yes</text>
+        <g class="good"><rect x="395" y="640" width="130" height="56" rx="6"/><text class="t" x="460" y="664">Mission Complete</text><text class="s" x="460" y="682">all objectives done</text></g>
+        <line class="a" x1="525" y1="668" x2="552" y2="668" marker-end="url(#arr1)"/>
+        <g class="n"><rect x="555" y="640" width="130" height="56" rx="6"/><text class="t" x="620" y="664">Outcome Screen</text><text class="s" x="620" y="682">EXP, time, checklist</text></g>
+        <line class="a" x1="685" y1="668" x2="712" y2="668" marker-end="url(#arr1)"/>
+        <g class="good"><rect x="715" y="640" width="130" height="56" rx="6"/><text class="t" x="780" y="664">Saved Online</text><text class="s" x="780" y="682">EXP, level, unlocks</text></g>
+
+        <!-- Wrong answer loop -->
+        <line class="a red" x1="280" y1="708" x2="280" y2="757" marker-end="url(#arr1r)"/>
+        <text class="l" x="290" y="738">no</text>
+        <g class="bad"><rect x="205" y="760" width="150" height="56" rx="6"/><text class="t" x="280" y="784">Wrong Response</text><text class="s" x="280" y="802">loses EXP and time</text></g>
+        <polyline class="a red" points="205,788 100,788"/>
+        <line class="a red" x1="100" y1="788" x2="100" y2="699" marker-end="url(#arr1r)"/>
+        <text class="l" x="110" y="745">choose again</text>
+
+        <!-- Timeout ends the mission at the outcome screen -->
+        <polyline class="a dash" points="730,506 730,608 620,608"/>
+        <line class="a dash" x1="620" y1="608" x2="620" y2="637" marker-end="url(#arr1)"/>
+        <text class="l end" x="724" y="601">time = 0 ends the mission</text>
+
+        <!-- Back to the hub -->
+        <polyline class="a" points="780,696 780,860 6,860 6,428 85,428"/>
+        <line class="a" x1="85" y1="428" x2="85" y2="409" marker-end="url(#arr1)"/>
+        <text class="l" x="100" y="852">back to the Operations Hub, next mission now unlocked</text>
+        <text class="l" x="100" y="880">EXP and points are awarded only on the first finish of a mission</text>
+      </svg>
+    </div>
+    <figcaption>Read it top to bottom. Every route into a mission passes through the briefing, and Continue is the only shortcut. Inside the mission the clock never pauses: a wrong response costs EXP and time and sends the player back to choose again, while a timeout ends the mission at the same outcome screen as a win. The result is saved online and the player returns to the hub.</figcaption>
+  </figure>
+
+  <p>The Investigate step changes with the threat, but it always ends with the same three pieces of evidence that the Cyber Tablet lists:</p>
+  <ul class="chips">
+    <li><b>Phishing</b>compare the email with the real notice</li>
+    <li><b>Malware</b>inspect places</li>
+    <li><b>Social Engineering</b>interview</li>
+    <li><b>Unauthorized Access</b>live login monitor</li>
+    <li><b>Spam</b>filter switches</li>
+    <li><b>Office missions</b>document, cards board, table, chat bubbles</li>
+  </ul>
+</main>

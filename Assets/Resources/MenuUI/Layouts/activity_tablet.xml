@@ -1,0 +1,1228 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/login_bg"
+
+    tools:context=".TabletActivity">
+
+    <!-- DARK OVERLAY ON BACKGROUND -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#40000000" />
+
+    <!-- PHYSICAL TABLET BODY -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/tabletDevice"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_gravity="center"
+
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="28dp"
+
+        app:cardCornerRadius="30dp"
+        app:cardElevation="18dp"
+        app:cardBackgroundColor="#101820">
+
+        <!-- TABLET OUTER FRAME -->
+        <FrameLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- TABLET SCREEN -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:id="@+id/tabletScreen"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="35dp"
+
+                android:background="#86CBEA">
+
+                <!-- ================================================= -->
+                <!-- GUIDELINES -->
+                <!-- ================================================= -->
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideThreatEnd"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+
+                    app:layout_constraintGuide_percent="0.29" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideMainEnd"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+
+                    app:layout_constraintGuide_percent="1.0" />
+
+                <!-- ================================================= -->
+                <!-- TOP STATUS BAR -->
+                <!-- ================================================= -->
+
+                <View
+                    android:id="@+id/topStatusBar"
+
+                    android:layout_width="0dp"
+                    android:layout_height="14dp"
+
+                    android:background="#081522"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:id="@+id/tabletTime"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="10:32 AM"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+
+                    android:includeFontPadding="false"
+
+                    app:layout_constraintTop_toTopOf="@id/topStatusBar"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="35dp" />
+
+                <TextView
+                    android:id="@+id/tabletBattery"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="87%"
+                    android:textColor="#FFFFFF"
+                    android:textSize="9sp"
+
+                    android:includeFontPadding="false"
+
+                    app:layout_constraintTop_toTopOf="@id/topStatusBar"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- ================================================= -->
+                <!-- LEFT THREATS PANEL -->
+                <!-- ================================================= -->
+
+                <LinearLayout
+                    android:id="@+id/threatPanel"
+
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+
+                    android:orientation="vertical"
+
+                    android:background="#0B1F33"
+
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
+                    android:paddingTop="5dp"
+
+                    app:layout_constraintTop_toBottomOf="@id/topStatusBar"
+                    app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/guideThreatEnd">
+
+                    <!-- THREATS HEADER -->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+
+                        android:text="Cyber Threats"
+
+                        android:textColor="#E5B86A"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+
+                        android:gravity="center"
+
+                        android:letterSpacing="0.08" />
+
+                    <!-- ================================================= -->
+                    <!-- 1. PHISHING -->
+                    <!-- ================================================= -->
+
+                    <LinearLayout
+                        android:id="@+id/btnPhishing"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+
+                        android:paddingStart="6dp"
+
+                        android:background="@drawable/threat_selected">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+
+                            android:src="@drawable/ic_phishing"
+                            android:contentDescription="Phishing Email"
+
+                            android:layout_marginEnd="4dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+
+                            android:layout_weight="1"
+
+                            android:orientation="vertical"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:text="1. PHISHING EMAIL"
+
+                                android:textColor="#0B1F33"
+                                android:textSize="9sp"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:text="Investigate suspicious emails"
+
+                                android:textColor="#0B1F33 "
+                                android:textSize="9sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- ================================================= -->
+                    <!-- 2. MALWARE -->
+                    <!-- ================================================= -->
+
+                    <LinearLayout
+                        android:id="@+id/btnMalware"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+
+                        android:paddingStart="6dp"
+
+                        android:layout_marginTop="12dp"
+
+                        android:background="@drawable/threat_button">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+
+                            android:src="@drawable/ic_malware"
+                            android:contentDescription="Malware Files"
+
+                            android:layout_marginEnd="4dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+
+                            android:layout_weight="1"
+
+                            android:orientation="vertical"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:text="2. MALWARE FILES"
+
+                                android:textColor="#0B1F33"
+                                android:textSize="9sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:text="Analyze attached files"
+
+                                android:textColor="#0B1F33"
+                                android:textSize="9sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- ================================================= -->
+                    <!-- 3. POP-UP -->
+                    <!-- ================================================= -->
+
+                    <LinearLayout
+                        android:id="@+id/btnPopup"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+
+                        android:paddingStart="6dp"
+
+                        android:layout_marginTop="12dp"
+
+                        android:background="@drawable/threat_button">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+
+                            android:src="@drawable/ic_popup"
+                            android:contentDescription="Pop-up Windows"
+
+                            android:layout_marginEnd="4dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+
+                            android:layout_weight="1"
+
+                            android:orientation="vertical"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:text="3. POP-UP WINDOWS"
+
+                                android:textColor="#0B1F33"
+                                android:textSize="9sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:text="Check fake pop-ups"
+
+                                android:textColor="#0B1F33"
+                                android:textSize="9sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- ================================================= -->
+                    <!-- 4. SPAM -->
+                    <!-- ================================================= -->
+
+                    <LinearLayout
+                        android:id="@+id/btnSpam"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+
+                        android:paddingStart="6dp"
+
+                        android:layout_marginTop="12dp"
+
+                        android:background="@drawable/threat_button">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+
+                            android:src="@drawable/ic_spam"
+                            android:contentDescription="Spam Mail"
+
+                            android:layout_marginEnd="4dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+
+                            android:layout_weight="1"
+
+                            android:orientation="vertical"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:text="4. SPAM MAIL"
+
+                                android:textColor="#0B1F33"
+                                android:textSize="9sp"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:text="Review spam messages"
+
+                                android:textColor="#0B1F33"
+                                android:textSize="9sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- ================================================= -->
+                    <!-- 5. SOCIAL ENGINEERING -->
+                    <!-- ================================================= -->
+
+                    <LinearLayout
+                        android:id="@+id/btnSocial"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+
+                        android:paddingStart="6dp"
+
+                        android:layout_marginTop="12dp"
+
+                        android:background="@drawable/threat_button">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+
+                            android:src="@drawable/ic_social"
+                            android:contentDescription="Social Engineering"
+
+                            android:layout_marginEnd="4dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+
+                            android:layout_weight="1"
+
+                            android:orientation="vertical"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:text="5. SOCIAL ENGINEERING"
+
+                                android:textColor="#0B1F33"
+                                android:textSize="9sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:text="Review call logs"
+
+                                android:textColor="#0B1F33"
+                                android:textSize="9sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- ================================================= -->
+                    <!-- 6. UNAUTHORIZED ACCESS -->
+                    <!-- ================================================= -->
+
+                    <LinearLayout
+                        android:id="@+id/btnUnauthorized"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+
+                        android:paddingStart="6dp"
+
+                        android:layout_marginTop="12dp"
+
+                        android:background="@drawable/threat_button">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+
+                            android:src="@drawable/ic_unauthorized"
+                            android:contentDescription="Unauthorized Access"
+
+                            android:layout_marginEnd="4dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+
+                            android:layout_weight="1"
+
+                            android:orientation="vertical"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:text="6. UNAUTHORIZED ACCESS"
+
+                                android:textColor="#0B1F33"
+                                android:textSize="9sp"
+                                android:textStyle="bold"
+
+                                android:maxLines="1"
+                                android:ellipsize="end" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:text="Check account activity"
+
+                                android:textColor="#0B1F33"
+                                android:textSize="9sp"
+
+                                android:maxLines="1"
+                                android:ellipsize="end" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- ================================================= -->
+                <!-- MAIN INVESTIGATION PANEL -->
+                <!-- ================================================= -->
+
+                <LinearLayout
+                    android:id="@+id/mainInvestigation"
+
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+
+                    android:orientation="vertical"
+
+                    android:paddingStart="17dp"
+                    android:paddingEnd="17dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="8dp"
+
+                    android:background="#123653"
+
+                    app:layout_constraintTop_toBottomOf="@id/topStatusBar"
+                    app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+                    app:layout_constraintStart_toEndOf="@id/guideThreatEnd"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <!-- TITLE -->
+
+                    <TextView
+                        android:id="@+id/txtThreatTitle"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:text="1. PHISHING EMAIL"
+
+                        android:textColor="#E5B86A"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+
+                        android:letterSpacing="0.08" />
+
+                    <!-- DESCRIPTION TITLE -->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="8dp"
+
+                        android:text="DESCRIPTION"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+
+                        android:textStyle="bold" />
+
+                    <!-- DESCRIPTION -->
+
+                    <TextView
+                        android:id="@+id/txtDescription"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:text="Fake emails that appear to be from trusted sources to trick users into revealing sensitive information such as usernames, passwords, or financial details."
+
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp"
+
+                        android:lineSpacingExtra="1dp"
+
+                        android:layout_marginTop="3dp" />
+
+                    <!-- EVIDENCE TITLE -->
+
+                    <TextView
+                        android:id="@+id/txtEvidenceTitle"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:text="EVIDENCE TO FIND (0/3)"
+
+                        android:textColor="#E5B86A"
+                        android:textSize="13dp"
+                        android:textStyle="bold"
+
+                        android:letterSpacing="0.08"
+
+                        android:layout_marginTop="17dp" />
+
+                    <!-- ================================================= -->
+                    <!-- EVIDENCE 1 -->
+                    <!-- ================================================= -->
+
+                    <LinearLayout
+                        android:id="@+id/evidenceOne"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+
+                        android:background="#315A78"
+
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+
+                        android:layout_marginTop="4dp">
+
+                        <CheckBox
+                            android:id="@+id/checkEvidenceOne"
+
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+
+                            android:buttonTint="#061F34"
+                            android:padding="0dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+
+                            android:layout_weight="1"
+
+                            android:paddingStart="12dp"
+
+                            android:orientation="vertical"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/txtEvidenceOneTitle"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:text="1. Suspicious Sender Address"
+
+                                android:textColor="#FFFFFF"
+                                android:textSize="9sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtEvidenceOneDescription"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:text="Check if the sender address is unusual."
+
+                                android:textColor="#BBD7E8"
+                                android:textSize="9sp" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="18dp"
+                            android:layout_height="match_parent"
+
+                            android:text="ⓘ"
+                            android:textColor="#062B48"
+                            android:textSize="13sp"
+
+                            android:gravity="center" />
+
+                    </LinearLayout>
+
+                    <!-- ================================================= -->
+                    <!-- EVIDENCE 2 -->
+                    <!-- ================================================= -->
+
+                    <LinearLayout
+                        android:id="@+id/evidenceTwo"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+
+                        android:background="#315A78"
+
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+
+                        android:layout_marginTop="4dp">
+
+                        <CheckBox
+                            android:id="@+id/checkEvidenceTwo"
+
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+
+                            android:buttonTint="#061F34"
+                            android:padding="0dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+
+                            android:layout_weight="1"
+
+                            android:paddingStart="12dp"
+
+                            android:orientation="vertical"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/txtEvidenceTwoTitle"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:text="2. Suspicious Link"
+
+                                android:textColor="#FFFFFF"
+                                android:textSize="9sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtEvidenceTwoDescription"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:text="Look for links to fake websites."
+
+                                android:textColor="#BBD7E8"
+                                android:textSize="9sp" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="18dp"
+                            android:layout_height="match_parent"
+
+                            android:text="ⓘ"
+                            android:textColor="#062B48"
+                            android:textSize="13sp"
+
+                            android:gravity="center" />
+
+                    </LinearLayout>
+
+                    <!-- ================================================= -->
+                    <!-- EVIDENCE 3 -->
+                    <!-- ================================================= -->
+
+                    <LinearLayout
+                        android:id="@+id/evidenceThree"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+
+                        android:background="#315A78"
+
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+
+                        android:layout_marginTop="4dp">
+
+                        <CheckBox
+                            android:id="@+id/checkEvidenceThree"
+
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+
+                            android:buttonTint="#061F34"
+                            android:padding="0dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+
+                            android:layout_weight="1"
+
+                            android:paddingStart="12dp"
+
+                            android:orientation="vertical"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/txtEvidenceThreeTitle"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:text="3. Urgent or Threatening Language"
+
+                                android:textColor="#FFFFFF"
+                                android:textSize="9sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtEvidenceThreeDescription"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:text="Identify pressure or urgency in messages."
+
+                                android:textColor="#BBD7E8"
+                                android:textSize="9sp" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="18dp"
+                            android:layout_height="match_parent"
+
+                            android:text="ⓘ"
+                            android:textColor="#062B48"
+                            android:textSize="13sp"
+
+                            android:gravity="center" />
+
+                    </LinearLayout>
+
+                    <!-- ================================================= -->
+                    <!-- INSTRUCTIONS -->
+                    <!-- ================================================= -->
+
+                    <LinearLayout
+                        android:id="@+id/instructionsBox"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+
+                        android:orientation="vertical"
+
+                        android:gravity="center"
+
+                        android:background="#315A78"
+
+                        android:layout_marginTop="16dp"
+
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:text="INSTRUCTIONS"
+
+                            android:textColor="#FFFFFF"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:text="Highlight the suspicious parts in the email that match the evidence above. Find all 3 pieces to identify that threat."
+
+                            android:textColor="#FFFFFF"
+                            android:textSize="9sp"
+
+                            android:gravity="center"
+
+                            android:layout_marginTop="3dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- ================================================= -->
+                <!-- EXAMPLES PANEL -->
+                <!-- ================================================= -->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/examplesPanel"
+
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+
+                    android:visibility="gone"
+
+                    android:background="#0C3556"
+
+                    app:layout_constraintTop_toBottomOf="@id/topStatusBar"
+                    app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+                    app:layout_constraintStart_toEndOf="@id/guideThreatEnd"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <!-- EXAMPLE TITLE -->
+
+                    <TextView
+                        android:id="@+id/exampleTitle"
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:text="1. PHISHING EMAIL"
+
+                        android:textColor="#E5B86A"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+
+                        android:letterSpacing="0.08"
+
+                        android:layout_marginStart="17dp"
+                        android:layout_marginEnd="17dp"
+                        android:layout_marginTop="10dp"
+
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <!-- EXAMPLE DESCRIPTION TITLE -->
+
+                    <TextView
+                        android:id="@+id/exampleDescriptionTitle"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="DESCRIPTION"
+
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="5dp"
+
+                        app:layout_constraintTop_toBottomOf="@id/exampleTitle"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <!-- EXAMPLE DESCRIPTION -->
+
+                    <TextView
+                        android:id="@+id/exampleDescription"
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:text="Fake emails that appear to be from trusted sources to trick users into revealing sensitive information such as usernames, passwords, or financial details."
+
+                        android:textColor="#FFFFFF"
+                        android:textSize="9sp"
+
+                        android:lineSpacingExtra="1dp"
+
+                        android:layout_marginStart="17dp"
+                        android:layout_marginEnd="17dp"
+                        android:layout_marginTop="2dp"
+
+                        app:layout_constraintTop_toBottomOf="@id/exampleDescriptionTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <!-- EXAMPLES CONTENT -->
+
+                    <FrameLayout
+                        android:id="@+id/examplesContent"
+
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+
+                        android:background="#0C3556"
+
+                        app:layout_constraintTop_toBottomOf="@id/exampleDescription"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+
+                        <FrameLayout
+                            android:id="@+id/examplesContentContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+
+                    </FrameLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- ================================================= -->
+                <!-- BOTTOM NAVIGATION -->
+                <!-- ================================================= -->
+
+                <LinearLayout
+                    android:id="@+id/bottomNavigation"
+
+                    android:layout_width="0dp"
+                    android:layout_height="27dp"
+
+                    android:orientation="horizontal"
+                    android:gravity="center"
+
+                    android:background="#081522"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <!-- HOME BOX -->
+
+                    <FrameLayout
+                        android:id="@+id/homeContainer"
+
+                        android:layout_width="80dp"
+                        android:layout_height="27dp"
+
+                        android:background="@drawable/home_example_box">
+
+                        <TextView
+                            android:id="@+id/txtHomeIcon"
+
+                            android:layout_width="20dp"
+                            android:layout_height="match_parent"
+
+                            android:text="⌂"
+                            android:textColor="#061F34"
+                            android:textSize="15sp"
+
+                            android:gravity="center"
+
+                            android:layout_marginStart="3dp" />
+
+                        <TextView
+                            android:id="@+id/txtHome"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:gravity="center"
+                            android:paddingStart="18dp"
+                            android:text="HOME"
+                            android:textColor="#0B1F33"
+
+                            android:textSize="13sp"
+
+                            android:textStyle="bold" />
+
+                    </FrameLayout>
+
+                    <!-- SPACE BETWEEN BOXES -->
+
+                    <View
+                        android:layout_width="5dp"
+                        android:layout_height="27dp" />
+
+                    <!-- EXAMPLES BOX -->
+
+                    <FrameLayout
+                        android:id="@+id/examplesContainer"
+
+                        android:layout_width="105dp"
+                        android:layout_height="27dp"
+
+                        android:background="@drawable/home_example_box">
+
+                        <TextView
+                            android:id="@+id/txtExamplesIcon"
+
+                            android:layout_width="20dp"
+                            android:layout_height="match_parent"
+
+                            android:text="▤"
+                            android:textColor="#061F34"
+                            android:textSize="13sp"
+
+                            android:gravity="center"
+
+                            android:layout_marginStart="3dp" />
+
+                        <TextView
+                            android:id="@+id/txtExamples"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:text="EXAMPLES"
+                            android:textColor="#0B1F33"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+
+                            android:gravity="center"
+
+                            android:paddingStart="18dp" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- ================================================= -->
+            <!-- TABLET TOP CAMERA / SPEAKER -->
+            <!-- ================================================= -->
+
+            <TextView
+                android:id="@+id/tabletCamera"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="top|center_horizontal"
+
+                android:layout_marginTop="7dp"
+
+                android:text="••  ─────"
+                android:textColor="#E8E8E8"
+                android:textSize="12sp"
+                android:textStyle="bold"
+
+                android:gravity="center"
+
+                android:includeFontPadding="false" />
+
+            <!-- ================================================= -->
+            <!-- TABLET HOME BUTTON -->
+            <!-- ================================================= -->
+
+            <TextView
+                android:id="@+id/tabletHomeButton"
+
+                android:layout_width="28dp"
+                android:layout_height="35dp"
+
+                android:layout_gravity="bottom|center_horizontal"
+
+                android:layout_marginBottom="4dp"
+
+                android:text="○"
+
+                android:textColor="#FFFFFF"
+                android:textSize="28sp"
+
+                android:gravity="center"
+
+                android:includeFontPadding="false" />
+
+        </FrameLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- ================================================= -->
+    <!-- BACK BUTTON -->
+    <!-- ================================================= -->
+
+    <Button
+        android:id="@+id/btnBack"
+
+        android:layout_width="50dp"
+        android:layout_height="45dp"
+
+        android:background="@drawable/back_button"
+
+        android:clickable="true"
+        android:focusable="true"
+
+        android:text="← BACK"
+
+        android:textColor="#F2D58A"
+        android:textSize="12sp"
+        android:textStyle="bold"
+
+        android:gravity="center"
+
+        android:padding="0dp"
+
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+
+        android:elevation="30dp"
+
+        android:stateListAnimator="@null"
+
+        android:layout_gravity="top|start"
+
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="50dp" />
+
+</FrameLayout>

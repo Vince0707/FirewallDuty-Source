@@ -1,0 +1,14 @@
+/Library/
+/Temp/
+/Obj/
+/Logs/
+/UserSettings/
+*.csproj
+*.sln
+*.apk
+*.aab
+*.keystore
+*.jks
+/Assets/Resources/MenuUI/facebook_config.json
+/Assets/Resources/MenuUI/firebase_config.json
+/Assets/Resources/MenuUI/google_device_config.json

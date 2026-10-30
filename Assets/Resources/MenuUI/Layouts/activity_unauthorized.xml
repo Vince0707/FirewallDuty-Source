@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/unauthorizedExample"
+    android:layout_width="600dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:visibility="visible">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="600dp"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#707070"
+        android:paddingStart="6dp"
+        android:translationY="5dp"
+        android:paddingEnd="6dp">
+
+        <TextView
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:background="@drawable/example_dot"/>
+
+        <TextView
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:layout_marginStart="3dp"
+            android:background="@drawable/example_dot"/>
+
+        <TextView
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:layout_marginStart="3dp"
+            android:background="@drawable/example_dot"/>
+
+    </LinearLayout>
+
+    <!-- SECURITY LOGIN CONTENT -->
+    <ScrollView
+        android:layout_width="600dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp">
+
+        <LinearLayout
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SECURITY LOGIN ACTIVITY"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="9sp"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="7dp"/>
+
+            <!-- LOGIN INFORMATION -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Username: employee01"
+                android:textColor="#000000"
+                android:textSize="9sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Time: 02:47 AM"
+                android:textColor="#000000"
+                android:textSize="9sp"
+                android:layout_marginTop="3dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="IP Address: 185.72.14.91"
+                android:textColor="#000000"
+                android:textSize="9sp"
+                android:layout_marginTop="3dp"/>
+
+            <!-- TIME WARNING -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="6dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="The login occurred outside normal working hours."
+                    android:textColor="#000000"
+                    android:textSize="9sp"/>
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="←"
+                    android:textColor="#FF3030"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:translationX="-200dp"
+                    android:translationY="-10dp" />
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/example_callout"
+                    android:padding="3dp"
+                    android:text="Login Outside Working Hours"
+                    android:textColor="#FFFFFF"
+                    android:translationX="-210dp"
+                    android:textSize="9sp"/>
+
+            </LinearLayout>
+
+            <!-- IP WARNING -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="The IP address is not recognized by the company."
+                    android:textColor="#000000"
+                    android:textSize="9sp"/>
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="←"
+                    android:textColor="#FF3030"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:translationX="-240dp"
+                    android:translationY="-10dp" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/example_callout"
+                    android:padding="3dp"
+                    android:text="Unknown IP Address"
+                    android:textColor="#FFFFFF"
+                    android:translationX="-250dp"
+                    android:textSize="9sp"/>
+
+            </LinearLayout>
+
+            <!-- DEVICE WARNING -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="The device used for the login is not registered."
+                    android:textColor="#000000"
+                    android:textSize="9sp"/>
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="←"
+                    android:textColor="#FF3030"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:translationX="-240dp"
+                    android:translationY="-10dp" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/example_callout"
+                    android:padding="3dp"
+                    android:text="Unrecognized Device"
+                    android:textColor="#FFFFFF"
+                    android:translationX="-250dp"
+                    android:textSize="9sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/spamExample"
+    android:layout_width="600dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:visibility="visible">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#707070"
+        android:paddingStart="6dp"
+        android:translationY="5dp"
+        android:paddingEnd="6dp">
+
+        <TextView
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:background="@drawable/example_dot"/>
+
+        <TextView
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:layout_marginStart="3dp"
+            android:background="@drawable/example_dot"/>
+
+        <TextView
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:layout_marginStart="3dp"
+            android:background="@drawable/example_dot"/>
+
+    </LinearLayout>
+
+    <!-- EMAIL BODY -->
+    <ScrollView
+        android:layout_width="600dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp">
+
+        <LinearLayout
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:background="#FFFFFF">
+
+            <!-- FROM -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="From: rewards@online-prize.com"
+                android:textColor="#000000"
+                android:textSize="9sp"/>
+
+            <!-- TO + WARNING -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="To: Employee@company.com"
+                    android:textColor="#000000"
+                    android:textSize="9sp"/>
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="←"
+                    android:textColor="#FF3030"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:translationX="-320dp"
+                    android:translationY="-10dp" />
+
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/example_callout"
+                    android:padding="3dp"
+                    android:text="Unsolicited email"
+                    android:textColor="#FFFFFF"
+                    android:translationX="-330dp"
+                    android:textSize="9sp"/>
+
+            </LinearLayout>
+
+            <!-- SUBJECT -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Subject: Congratulations! You Won $50,000"
+                android:textColor="#000000"
+                android:textSize="9sp"
+                android:layout_marginTop="4dp"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
+            <!-- GREETING -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Congratulations!"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="9sp"/>
+
+            <!-- WINNER MESSAGE + WARNING -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="You have been selected as the winner of our weekly draw. Claim your prize of $50,000 now!"
+                    android:textColor="#000000"
+                    android:textSize="9sp"/>
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="←"
+                    android:textColor="#FF3030"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:translationX="-70dp"
+                    android:translationY="-10dp" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/example_callout"
+                    android:padding="3dp"
+                    android:text="Too good to be true"
+                    android:textColor="#FFFFFF"
+                    android:translationX="-80dp"
+                    android:textSize="9sp"/>
+
+            </LinearLayout>
+
+            <!-- PERSONAL INFORMATION WARNING -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="17dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Provide your personal details below to proceed."
+                    android:textColor="#000000"
+                    android:textSize="9sp"/>
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="←"
+                    android:textColor="#FF3030"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:translationX="-190dp"
+                    android:translationY="-10dp" />
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/example_callout"
+                    android:padding="3dp"
+                    android:text="Request personal information"
+                    android:textColor="#FFFFFF"
+                    android:translationX="-200dp"
+                    android:textSize="9sp"/>
+
+            </LinearLayout>
+
+            <!-- SUSPICIOUS LINK WARNING -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="www.winner-prizes.net/claim"
+                    android:textColor="#42A5F5"
+                    android:textSize="9sp"/>
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="←"
+                    android:textColor="#FF3030"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:translationX="-320dp"
+                    android:translationY="-10dp" />
+
+                <TextView
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/example_callout"
+                    android:padding="3dp"
+                    android:text="Suspicious link"
+                    android:textColor="#FFFFFF"
+                    android:translationX="-330dp"
+                    android:textSize="9sp"/>
+
+            </LinearLayout>
+
+            <!-- HURRY WARNING -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Hurry! Offer expires soon."
+                    android:textColor="#000000"
+                    android:textSize="9sp"/>
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="←"
+                    android:textColor="#FF3030"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:translationX="-330dp"
+                    android:translationY="-10dp" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/example_callout"
+                    android:padding="3dp"
+                    android:text="Pressure to act quickly"
+                    android:textColor="#FFFFFF"
+                    android:translationX="-340dp"
+                    android:textSize="9sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
